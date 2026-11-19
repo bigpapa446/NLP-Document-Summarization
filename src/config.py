@@ -25,3 +25,7 @@ def parse_positive_int(raw, fallback: int = 1) -> int:
         return val if val > 0 else fallback
     except (TypeError, ValueError):
         return fallback
+
+
+def clamp_port(port: int, default: int = 8080) -> int:
+    return port if isinstance(port, int) and 1 <= port <= 65535 else default
